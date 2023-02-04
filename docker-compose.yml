@@ -1,0 +1,35 @@
+version: "3"
+services:
+  node-app: 
+    container_name: express-node-app-container
+    ports: 
+      - "4000:4000"
+    env_file:
+      - ./.env
+    depends_on:
+      - postgres
+      - redis
+
+  mongo:
+   image: mongo
+   restart: always
+   volumes:
+    - mongo-db:/data/db #Named volume
+   environment:
+     MONGO_INITDB_ROOT_USERNAME: root
+     MONGO_INITDB_ROOT_PASSWORD: example    
+
+  redis:
+    image: redis
+  
+  nginx:
+    image: nginx:stable-alpine
+    ports:
+    - "80:80"
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - node-app
+volumes:
+  mongo-db: 
+  postgres-db:
