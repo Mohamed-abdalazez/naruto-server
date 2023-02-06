@@ -36,7 +36,7 @@ redisClient.connect();
 // just for try redis
 app.get("/", (req, res) => {
   redisClient.set("Anime", "Naruto...");
-  res.send("<h1>Hi guess who i am :D, Give me a pomegranate, and let's be friends :D.</h1>");
+  res.send("<h1>Hi guess who i am :D, Give me a pomegranate, and let's be friends :).</h1>");
 });
 
 app.get("/data", async (req, res) => {
