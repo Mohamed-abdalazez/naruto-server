@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const redis = require("redis");
+const os = require("os");
 const { Client } = require("pg");
 
 // init app
@@ -36,6 +37,7 @@ redisClient.connect();
 // just for try redis
 app.get("/", (req, res) => {
   redisClient.set("Anime", "Naruto...");
+  console.log(`Traffic from Konoha with container id: ${os.hostname}`)
   res.send(
     "<h1>Hi guess who i am :D, Give me a pomegranate, and let's be friends :), i am from docker hub.</h1>"
   );
