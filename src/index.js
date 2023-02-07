@@ -16,7 +16,7 @@ const URI = `mongodb://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}`;
 
 mongoose
   .connect(URI)
-  .then(() => console.log("connected to db..."))
+  .then(() => console.log("connected to db W!..."))
   .catch((err) => console.log("failed to connect to db: ", err));
 
 // connect to redis
@@ -35,7 +35,7 @@ redisClient.connect();
 app.get("/", (req, res) => {
   redisClient.set("Anime", "Naruto...");
   res.send(
-    "<h1>Hi guess who i am :D, Give me a pomegranate, and let's be friends :), i am watch tower.</h1>"
+    "<h1>Hi guess who i am :D, Give me a pomegranate, and let's be friends :), i am watchtower:).</h1>"
   );
 });
 
