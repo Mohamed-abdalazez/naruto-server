@@ -35,7 +35,7 @@ redisClient.connect();
 app.get("/", (req, res) => {
   redisClient.set("Anime", "Naruto...");
   res.send(
-    "<h1>Hi guess who i am :D, Give me a pomegranate, and let's be friends :), i am watchtower:).</h1>"
+    "<h1>Hi guess who i am :D, Give me a pomegranate, and let's be friends :), i am docker swarm:).</h1>"
   );
 });
 
